@@ -55,14 +55,14 @@ function c(rawVal){
     
     unemp.forEach(o=>{
         let c = Math.max(0, a - o.limit);
-        let t = Math.round((Math.min(a, o.limit) * o.x) / 100) * 100;
-        h1+=`<div class='row'>${o.n}<br>الكاش: <span class='num-display cash-val'>${formatCorrectly(c)}</span><br>الإجمالي: <span class='num-display val'>${formatCorrectly(t)}</span><br>القسط: <span class='num-display monthly-val'>${formatCorrectly(Math.round((t/o.m)/100)*100)}</span></div>`;
+        let t = Math.ceil((Math.min(a, o.limit) * o.x) / 100) * 100;
+        h1+=`<div class='row'>${o.n}<br>الكاش: <span class='num-display cash-val'>${formatCorrectly(c)}</span><br>الإجمالي: <span class='num-display val'>${formatCorrectly(t)}</span><br>القسط: <span class='num-display monthly-val'>${formatCorrectly(Math.ceil((t/o.m)/100)*100)}</span></div>`;
     });
     
     empItems.forEach(o=>{
         if(o.m === 0) { h2+=`<div></div>`; return; }
-        let v = Math.round((a * o.x) / 100) * 100;
-        h2+=`<div class='row'>${o.n}<br>الإجمالي: <span class='num-display val'>${formatCorrectly(v)}</span><br>القسط: <span class='num-display monthly-val'>${formatCorrectly(Math.round((v/o.m)/100)*100)}</span></div>`;
+        let v = Math.ceil((a * o.x) / 100) * 100;
+        h2+=`<div class='row'>${o.n}<br>الإجمالي: <span class='num-display val'>${formatCorrectly(v)}</span><br>القسط: <span class='num-display monthly-val'>${formatCorrectly(Math.ceil((v/o.m)/100)*100)}</span></div>`;
     });
     
     document.getElementById('r1').innerHTML=h1;
